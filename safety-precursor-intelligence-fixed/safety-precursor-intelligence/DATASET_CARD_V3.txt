@@ -1,0 +1,34 @@
+SAFETY PRECURSOR INTELLIGENCE 3.0 — CONVERSATION DATASET CARD
+=============================================================
+
+File: spi/data/humanised_hse_conversations.jsonl
+Rows: 50,000 (one JSON object per line)
+Hazard groups: 10 groups x 5,000 examples each
+Format: JSON Lines / UTF-8
+Purpose: conversational phrasing coverage, local acknowledgement retrieval,
+         regression testing and demonstration of humanised worker language.
+
+The corpus covers electrical contact, unconsciousness, fire, gas release,
+chemical spills, working at height, machine guarding, slips/trips, PPE and
+vehicle/pedestrian interactions. Each row contains a synthetic worker-style
+observation, a non-judgmental acknowledgement, and one clarifying question.
+
+IMPORTANT LIMITATIONS
+---------------------
+* All 50,000 examples are generated synthetic language variations. They are
+  NOT 50,000 real safety reports, incidents, workers, sites or observations.
+* This is not evidence of model accuracy, real-world generalisation, or a
+  validated training set. It is not a replacement for labelled site data.
+* Safety instructions are not learned from these examples. The chatbot's
+  emergency triage and immediate response guidance remain rule-first and are
+  sourced from the curated playbooks in spi/knowledge.py.
+* The examples do not represent every language, dialect, industry or hazard.
+  Review and extend them with domain experts before operational use.
+* Do not use this dataset to infer worker blame, intent, medical conditions,
+  legal compliance or site risk without competent human review.
+
+Regenerate deterministically with:
+    python scripts/build_humanised_corpus.py
+
+Run tests with:
+    python -m pytest -q

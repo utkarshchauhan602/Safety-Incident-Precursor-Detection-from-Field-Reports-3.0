@@ -1,0 +1,36 @@
+SAFETY PRECURSOR INTELLIGENCE 3.0 - BUILD VERIFICATION
+=====================================================
+
+Version: 3.0.0
+Chatbot corpus: 50,000 unique synthetic conversation examples
+Coverage: 10 hazard groups, 5,000 examples per group
+Corpus format: JSONL, one record per line
+
+Version 3.0 changes:
+- Added a 50,000-row humanised HSE conversation corpus.
+- Added lazy byte-offset retrieval for conversational acknowledgement examples.
+- Integrated varied, non-judgmental acknowledgements into rule-first hazard responses.
+- Kept emergency response instructions and hazard triage in curated local playbooks.
+- Added dataset card, deterministic corpus generator and regression tests.
+- Updated application/package version to 3.0.0.
+
+Verification performed in the build environment:
+- Python compileall: passed.
+- pytest: 97 passed.
+- Conversation smoke test: machine-guard hazard classified and answered.
+- Conversation smoke test: slip/trip hazard classified and answered.
+- Corpus count: exactly 50,000 JSONL records.
+- Unique worker-style utterances: 50,000; duplicate count: 0.
+- Hazard distribution: 5,000 examples for each of 10 hazard groups.
+
+IMPORTANT DATA LIMITATION
+The 50,000 examples are synthetic language variations for phrasing coverage,
+local response retrieval and QA. They are not real incident reports and do not
+establish real-world model accuracy. Operational validation still requires
+representative, labelled site reports and linked incident outcomes.
+
+SAFETY LIMITATION
+This remains a decision-support prototype, not a certified safety system.
+For immediate danger, activate the site's emergency plan and emergency services.
+Do not wait for a chatbot response. Competent HSE personnel must verify reports,
+controls, risk levels and any precursor alerts.
