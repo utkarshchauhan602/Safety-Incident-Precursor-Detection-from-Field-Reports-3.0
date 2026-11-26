@@ -1147,3 +1147,11 @@ elif page == "Model Evaluation":
 
 st.sidebar.divider()
 st.sidebar.caption("Safety Precursor Intelligence 3.0 • Humanised HSE chatbot + NLP + precursor analytics")
+# Before (example of how it is currently rendering):
+# with st.chat_message("assistant"):
+#     st.markdown(message["content"])
+
+# After (add .replace("\\n", "\n") before rendering):
+with st.chat_message("assistant"):
+    clean_text = str(message["content"]).replace("\\n", "\n")
+    st.markdown(clean_text)
